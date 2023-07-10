@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>House Price Prediction</title>
+</head>
+<body>
+    <style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			background-image: url('https://www.onthemarket.com/content/wp-content/uploads/2018/01/Housepricepredictions2018fbk.jpg');
+			background-size: cover;
+		}
+		h1 {
+			text-align: center;
+			color: #333333;
+			margin-top: 50px;
+		}
+		form {
+			margin: 0 auto;
+			width: 50%;
+			
+			padding: 20px;
+			background-color: #ffffff7b;
+			border-radius: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 18px;
+			color: #000000;
+		}
+		input {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #cccccc;
+			font-size: 16px;
+			color: #333333;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		button {
+			background-color: #333333;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 18px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		button:hover {
+			background-color: #666666;
+		}
+		/* Additional Styles */
+		h2 {
+			text-align: center;
+			color: #666666;
+			margin-top: 20px;
+		}
+		   
+		/* Add some spacing between the form elements */
+		input:not([type="submit"]) {
+			margin-bottom: 15px;
+		}
+		   
+		/* Apply different background color to the predict button on hover */
+		button:hover {
+			background-color: #555555;
+		}
+		   
+		/* Add some margin to the predicted price */
+		#predicted_price {
+			margin-top: 30px;
+			background-color: white;
+		}
+	</style>
+	<h1>House Price Prediction</h1>
+	<form action="/predict" method="POST">
+		<label for="income">Average Area Income:</label>
+		<input type="number" name="income" id="income" required min="100" max="100000"><br>
+
+		<label for="age">Average Area House Age:</label>
+		<input type="number" name="age" id="age" required min="0" max="100"><br>
+
+		<label for="rooms">Average Area Number of Rooms:</label>
+		<input type="number" name="rooms" id="rooms" required min="1" max="30"><br>
+
+		<label for="bedrooms">Average Area Number of Bedrooms:</label>
+		<input type="number" name="bedrooms" id="bedrooms" required min="1" max="30"><br>
+
+		<label for="population">Area Population:</label>
+		<input type="number" name="population" id="population" required min="100" max="10000000"><br>
+
+		<button type="submit" onclick="predictPrice()">Predict</button>
+	</form>
+	<h2 id="predicted_price">{{prediction_text}}</h2>
+	
+	
+</body>
+</html>
